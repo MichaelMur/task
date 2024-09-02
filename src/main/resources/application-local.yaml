@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+KAFKA_HOST: localhost:29092
+DB_URL: localhost:5432
+DB_USER: user
+DB_PASSWORD: password
+
+LOG_LEVEL: debug

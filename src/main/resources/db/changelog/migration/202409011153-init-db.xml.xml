@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+  objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+  <changeSet id="202409011153-1" author="murzakhanov">
+
+    <createTable tableName="cars">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="registration_date" type="timestamp"/>
+      <column name="last_update_date" type="timestamp"/>
+      <column name="status" type="varchar" defaultValue="AVAILABLE"/>
+      <column name="longitude" type="double"/>
+      <column name="latitude" type="double"/>
+      <column name="driver_name" type="varchar"/>
+      <column name="driver_id" type="varchar"/>
+    </createTable>
+
+    <createTable tableName="orders">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="created_at" type="timestamp"/>
+      <column name="updated_at" type="timestamp"/>
+      <column name="from_longitude" type="double"/>
+      <column name="from_latitude" type="double"/>
+      <column name="to_longitude" type="double"/>
+      <column name="to_latitude" type="double"/>
+      <column name="status" type="varchar"/>
+      <column name="car_id" type="uuid"/>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>
