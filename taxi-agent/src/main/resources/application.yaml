@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  main:
+    web-application-type: none
+
+booking:
+  center:
+    url: ${BOOKING_CENTER_URL}
