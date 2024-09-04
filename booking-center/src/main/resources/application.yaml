@@ -6,12 +6,6 @@ spring:
     username: ${DB_USER}
     url: jdbc:postgresql://${DB_URL}/booking-center
     password: ${DB_PASSWORD}
-    hikari:
-      maximum-pool-size: 50
-      minimum-idle: 10
-      idle-timeout: 30000
-      connection-timeout: 50000
-      leakDetectionThreshold: 120000
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
