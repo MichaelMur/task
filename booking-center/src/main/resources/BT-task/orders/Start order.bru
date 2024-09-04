@@ -1,0 +1,15 @@
+meta {
+  name: Start order
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:8080/order/490a4aea-5e63-4763-86ad-b0c7b1306d4e/START?carId=f0522882-e9d5-4383-b8e3-62f115c69b68
+  body: json
+  auth: none
+}
+
+query {
+  carId: f0522882-e9d5-4383-b8e3-62f115c69b68
+}

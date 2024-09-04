@@ -1,0 +1,20 @@
+meta {
+  name: Register new car
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/taxi/registration
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "driverName":"driver1",
+    "driverId":"PP001001",
+    "lon": "0",
+    "lat": "0"
+  }
+}

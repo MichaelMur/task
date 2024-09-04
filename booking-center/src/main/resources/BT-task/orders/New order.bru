@@ -1,0 +1,24 @@
+meta {
+  name: New order
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/order
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "from":{
+      "lat": 0,
+      "lon": 0
+    },
+    "to":{
+      "lat": 0,
+      "lon": 0
+    }
+  }
+}

@@ -7,6 +7,8 @@ import com.taxi.booking.booking.service.OrderService;
 import com.taxi.booking.common.db.entity.OrderStatus;
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order")
 public class OrderController {
 
+  private final Logger log = LoggerFactory.getLogger(OrderController.class);
+
   private final OrderService orderService;
 
   public OrderController(OrderService orderService) {
@@ -28,7 +32,9 @@ public class OrderController {
 
   @PostMapping
   public UUID createOrder(@RequestBody OrderInitView orderInit) {
-    return orderService.createOrder(orderInit);
+    UUID orderId = orderService.createOrder(orderInit);
+    log.info("Order {} created", orderId);
+    return orderId;
   }
 
   @GetMapping
@@ -43,5 +49,6 @@ public class OrderController {
       @PathVariable Action action,
       @RequestParam UUID carId) {
     orderService.updateOrder(orderId, action, carId);
+    log.info("Order {} {} by car {}", orderId, action, carId);
   }
 }

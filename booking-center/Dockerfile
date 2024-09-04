@@ -1,7 +1,7 @@
 FROM azul/zulu-openjdk-alpine:21-jre-latest
 
 WORKDIR /opt/app
-ADD audit-app/target/audit-app*.jar ./app.jar
+ADD target/booking-center*.jar ./app.jar
 
 EXPOSE 8081 8081
 EXPOSE 8080 8080

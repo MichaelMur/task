@@ -4,6 +4,8 @@ import com.taxi.booking.cars.model.TaxiInfo;
 import com.taxi.booking.cars.model.TaxiStatusUpdateEvent;
 import com.taxi.booking.cars.service.CarManagementService;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/taxi")
 public class RegistrationController {
 
+  private final Logger log = LoggerFactory.getLogger(RegistrationController.class);
+
   private final CarManagementService carManagementService;
 
   public RegistrationController(CarManagementService carManagementService) {
@@ -21,12 +25,15 @@ public class RegistrationController {
 
   @PostMapping("/registration")
   public UUID registerCar(@RequestBody TaxiInfo info) {
-    return carManagementService.registerCar(info);
+    UUID carId = carManagementService.registerCar(info);
+    log.info("Car {} registered", carId);
+    return carId;
   }
 
   @PostMapping("/stop")
   public void disableCar(@RequestBody UUID id) {
     carManagementService.removeCar(id);
+    log.info("Car {} disabled", id);
   }
 
   @PostMapping("/state")

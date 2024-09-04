@@ -1,0 +1,18 @@
+meta {
+  name: Update location
+  type: http
+  seq: 1
+}
+
+patch {
+  url: http://localhost:8080/car/17b074d3-83e0-4feb-9b26-1200e0b0753d/geo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "lat": 11.88,
+    "lon": 12.32
+  }
+}
